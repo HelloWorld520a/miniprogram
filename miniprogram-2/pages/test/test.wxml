@@ -1,0 +1,34 @@
+<!--pages/test/test.wxml-->
+<t-navbar fixed>
+<view class="custom-image" slot="left">
+  <!-- <label>Hello</label> -->
+  <t-image t-class="custom-image" src="{{image}}" aria-label="导航栏图片" />
+</view>
+  <view class="search-box" slot="left">    
+    <t-search shape="round" placeholder="搜索内容" clear="FunSearch" blur="FunSearch" />
+  </view>
+</t-navbar>
+<!-- <t-navbar fixed >
+  <view >
+    <t-image t-class="custom-image" src="{{image}}" aria-label="导航栏图片" />
+    <t-search style="height: 20rpx;width: 60rpx;" shape="round" placeholder="搜索内容" />
+  </view>
+</t-navbar> -->
+<text>pages/test/test.wxml</text>
+<t-search shape="round" placeholder="|  搜索内容"  bind:focus="FunSearch" />
+<view style="margin: 10px;">
+  <t-button theme="primary" size="large" block capture-bind:tap="GetData">填充按钮</t-button>
+  <t-button style="margin-top: 10px;" size="large" theme="light" variant="outline" block capture-bind:tap="onUpload">描边按钮</t-button>
+</view>
+<view class="wrapper">
+  <t-upload
+    mediaType="{{['video','image']}}"
+    max="{{1}}"
+    files="{{fileList}}"
+    bind:add="handleAdd"
+    bind:remove="handleRemove"
+  >
+  </t-upload>
+</view>
+<t-toast id="t-toast" />
+
